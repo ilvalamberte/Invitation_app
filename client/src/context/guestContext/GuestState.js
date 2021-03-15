@@ -4,13 +4,19 @@ import GuestReducer from './GuestReducer.js'
 import {
     TOGGLE_FILTER,
     SEARCH_GUEST,
-    CLEAR_SEARCH
+    CLEAR_SEARCH,
+    ADD_GUEST,
+    REMOVE_GUEST,
+    UPDATE_GUEST,
+    EDIT_GUEST,
+    CLEAR_EDIT
 } from '../types.js'
 
 const GuestState = (props) => {
     const initialState = {
         filterGuest : false,
         search: null,
+        editAble:null,
         guests: [
             {
                 id: 1,
@@ -36,7 +42,27 @@ const GuestState = (props) => {
 
         ]
     }
+
     const [state, dispatch] = useReducer(GuestReducer, initialState)
+
+
+    const addGuest = (guest) => {
+        guest.id = Date.now();
+        guest.isconfirmed = false;
+        dispatch({
+            type: ADD_GUEST,
+            payload: guest
+        }) 
+
+    }
+
+    const removeGuest = (id) => {
+        dispatch({
+            type: REMOVE_GUEST,
+            payload: id
+        })
+    }
+
 
     const toggleFilter = () => {
         dispatch( {
@@ -52,16 +78,17 @@ const GuestState = (props) => {
     }
     console.log(state.filterGuest)
     return (
-<GuestContext.Provider
+    <GuestContext.Provider
     value={{
     guests: state.guests,
     filterGuest:state.filterGuest,
- 
+    search: state.search,
+    editAble: state.editAble,
+    addGuest,
+    removeGuest,
     toggleFilter,
-    
     clearSearch
 }}>{props.children}</GuestContext.Provider>  
-)
-}
+)}
 
 export default GuestState

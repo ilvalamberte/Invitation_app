@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import GuestContext from '../../context/guestContext/GuestContext.js'
 
 import { GrUserExpert } from 'react-icons/gr'
 import { BsCheckBox } from 'react-icons/bs'
@@ -6,8 +7,18 @@ import { BsTrash } from 'react-icons/bs'
 import { FcCellPhone } from 'react-icons/fc'
 
 
+
 const Guest = ({guest}) => {
-    const { name, phone, dietary, isconfirmed } = guest
+    const {removeGuest, updateGuest, editGuest} = useContext(GuestContext)
+    const { id, name, phone, dietary, isconfirmed } = guest
+    
+    const handleRemove = () => {
+        removeGuest(id)
+    }
+
+    const handleIsConfirmed = () => {
+        updateGuest({...guest, isconfirmed: !isconfirmed })
+    }
 
 
     return (
@@ -16,7 +27,7 @@ const Guest = ({guest}) => {
                 <div>
                     <label className={`${isconfirmed && 'confirm'}`}>{isconfirmed}
                         <BsCheckBox />
-                        <input type="checkbox"></input>
+                        <input type="checkbox" ></input>
                     </label>
                 </div>
 
@@ -25,7 +36,7 @@ const Guest = ({guest}) => {
             <GrUserExpert />
             </button>
 
-            <button className="btn1">
+            <button className="btn1" onClick={handleRemove}>
             <BsTrash />
             </button>
 
