@@ -27,12 +27,12 @@ const Guest = ({guest}) => {
                 <div>
                     <label className={`${isconfirmed && 'confirm'}`}>{isconfirmed}
                         <BsCheckBox />
-                        <input type="checkbox" ></input>
+                        <input type="checkbox" onChange={handleIsConfirmed}></input>
                     </label>
                 </div>
 
                   <div>
-            <button className="btn1">
+            <button className="btn1" onClick={() => editGuest(guest)}>
             <GrUserExpert />
             </button>
 
