@@ -23,6 +23,23 @@ export default (state, {type, payload}) => {
                 guests: state.guests.filter(guest => guest.id !== payload)
 
             }
+        case UPDATE_GUEST:
+            return {
+                ...state,
+                guests:state.guests.map(guest => guest.id === payload.id ? payload : guest)
+            }
+
+        case EDIT_GUEST: 
+        return {
+            ...state,
+            editAble:payload
+        }
+
+        case CLEAR_EDIT: 
+        return {
+            ...state,
+            editAble: null
+        }
        
         case SEARCH_GUEST :
             const reg = new RegExp(`${payload}`, 'gi')

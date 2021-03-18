@@ -45,7 +45,7 @@ const GuestState = (props) => {
 
     const [state, dispatch] = useReducer(GuestReducer, initialState)
 
-
+//add guest
     const addGuest = (guest) => {
         guest.id = Date.now();
         guest.isconfirmed = false;
@@ -55,14 +55,36 @@ const GuestState = (props) => {
         }) 
 
     }
-
+//remove guest
     const removeGuest = (id) => {
         dispatch({
             type: REMOVE_GUEST,
             payload: id
         })
     }
+//update guest
+    const updateGuest = (guest) => {
+        dispatch({
+            type: UPDATE_GUEST,
+            payload: guest
+        }) 
 
+    }
+
+    const editGuest = (guest) => {
+        dispatch ({
+            type: EDIT_GUEST,
+            payload: guest
+        })
+
+    }
+    const clearEdit = (guest) => {
+        dispatch ({
+            type: CLEAR_EDIT,
+            payload: ''
+        })
+
+    }
 
     const toggleFilter = () => {
         dispatch( {
@@ -86,6 +108,9 @@ const GuestState = (props) => {
     editAble: state.editAble,
     addGuest,
     removeGuest,
+    updateGuest,
+    editGuest,
+    clearEdit,
     toggleFilter,
     clearSearch
 }}>{props.children}</GuestContext.Provider>  
