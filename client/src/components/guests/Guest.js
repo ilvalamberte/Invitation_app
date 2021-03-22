@@ -10,10 +10,10 @@ import { FcCellPhone } from 'react-icons/fc'
 
 const Guest = ({guest}) => {
     const {removeGuest, updateGuest, editGuest} = useContext(GuestContext)
-    const { id, name, phone, dietary, isconfirmed } = guest
+    const {_id, name, phone, dietary, isconfirmed } = guest
     
     const handleRemove = () => {
-        removeGuest(id)
+        removeGuest(_id)
     }
 
     const handleIsConfirmed = () => {

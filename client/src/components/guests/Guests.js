@@ -5,7 +5,12 @@ import Guest from '../guests/Guest.js'
 
 
 const Guests = () => {
-    const {guests, filterGuest , search } = useContext(GuestContext)
+    const {guests, filterGuest , search, getGuests } = useContext(GuestContext)
+
+    useEffect( () => {
+        getGuests()
+    }, [])
+    
     return (
         <div className="guests">
             {guests.map(guest => <Guest key={guest.id} guest={guest} />) ?

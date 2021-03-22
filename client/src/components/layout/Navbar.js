@@ -1,25 +1,48 @@
-import React from 'react'
+import React , { useContext, Fragment } from 'react'
+import AuthContext from '../../context/authContext/authContext.js'
+import { Link } from 'react-router-dom'
+
 import { GrLogout } from 'react-icons/gr'
 
 const Navbar = () => {
+    const {logout, userAuth, user} = useContext(AuthContext)
+
+    const onLogout = () => {
+        logout();
+    }
+
+    const userLinks = (
+    <Fragment>
+    <li>Hello {user && user.name}</li>
+    <span className="sm-hide">|</span>
+    <li>
+    <Link to='/login'> <a onClick={onLogout} href="#!">
+    <span className="sm-hide">Logout</span></a></Link> 
+    <GrLogout color="white"/>
+    </li>
+    </Fragment>
+    )
+    const authLinks = (
+    <Fragment>
+    <li>
+    <Link to='register'>Register</Link>
+    </li>
+    <li>
+    <Link to='/login'> Log In</Link>
+    </li>
+    </Fragment>
+    )
+
+
     return (
         <div className="navbar">
         <div className="logo">
             <h1><i className='as fa-glass-cheers' />
-            RSVP APP
+            Invitation App
             </h1>
-            <p>Made by</p>
         </div>
         <ul>
-            <li>Hello</li>
-            <span className="sm-hide">|</span>
-            <li>
-                <a href="#!">
-                    <span className="sm-hide">Logout</span>
-                  
-                </a>
-                <GrLogout color="white"/>
-            </li>
+        { userAuth ? userLinks : authLinks }
         </ul>
         </div>
     )
