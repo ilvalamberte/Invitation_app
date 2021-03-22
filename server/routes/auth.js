@@ -19,6 +19,8 @@ res.status(500).send('Server Error')
     }
 })
 
+
+
 router.post('/',
 [
     check('email', 'Please provide an email').isEmail(),

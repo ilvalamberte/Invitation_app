@@ -1,22 +1,31 @@
-import React , { useState, useContext } from 'react'
+import React , { useState, useContext, useEffect } from 'react'
 import AuthContext from '../../context/authContext/authContext.js'
 import { Link } from 'react-router-dom'
-const Login = () => {
-    const { loginUser, userAuth, errors } = useContext(AuthContext)
+
+const Login = (props) => {
+    const {loginUser, userAuth, errors } = useContext(AuthContext)
+
+    useEffect( () => {
+        if(userAuth) {
+            props.history.push('/')
+        }
+
+    }, [userAuth, props.history])
+  
     const [user, setUser] = useState({
         email: '',
         password: ''
     })
-
     const {email, password} = user
 
     const handleChange = e => {
         setUser({...user, [e.target.name]: e.target.value})
     }
-
     const submit = e => {
         e.preventDefault()
-        loginUser({email, password})
+        console.log(user);
+        loginUser({ email, password })
+     
     }
     return (
          <div>
@@ -29,7 +38,7 @@ const Login = () => {
                  </form>
                  <div className="question">
              
-                     <p>Don't have an account? {" "} <Link to="/register"></Link></p>
+                     <p>Don't have an account? {" "} <Link to="/register">Here</Link></p>
                  </div>
              </div>
          </div>

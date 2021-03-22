@@ -1,80 +1,127 @@
 import React, { useReducer } from 'react'
-import AuthContext from './authContext.js'
+import axios from 'axios'
+import cors from 'cors'
+import AuthContext from '../authContext/authContext.js'
 import AuthReducer from './authReducer.js'
+import setToken from '../../utils/setToken.js'
 import {
     SUCCESS_REGISTER,
     SUCCESS_LOGIN,
     FAIL_REGISTER,
-    FAIL_LOGIN
-
+    FAIL_LOGIN,
+    LOG_OUT,
+    SET_USER,
+    AUTH_ERROR
 } from '../types.js'
-import axios from 'axios'
 
 const AuthState = (props) => {
-    const initialState = {
-        userAuth: null,
-        errors: null,
-    }
-    const [state, dispatch ] = useReducer(AuthReducer, initialState)
 
-    //register user 
+    const initialState = {
+        userAuth:null,
+        errors:null,
+        user: null
+    }
+
+    const [state, dispatch] = useReducer(AuthReducer, initialState)
+
+    //get user
+
+    const getUser = async () => {
+        if (localStorage.token) {
+            setToken(localStorage.token)
+        }
+        try {
+            const res = await axios.get('http://localhost:8000/auth')
+            dispatch (
+                {
+                    type: SET_USER,
+                    payload: res.data
+                }
+            )
+
+        } catch (err) {
+            dispatch ( 
+                {
+                    type: AUTH_ERROR,
+                    payload: err
+                }
+            )
+
+        }
+    }
+
+    //register user
 
     const registerUser = async userData => {
         const config = {
-            header: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+            header : {
+                'Application-Type':'application/json'
             }
         }
         try {
-            const res = await axios.post('http://localhost:5000/register', userData, config)
-        dispatch ({
+            const res = await axios.post('http://localhost:8000/register', userData, config, {mode:cors})
+            dispatch({
+                type: SUCCESS_REGISTER,
+                payload: res.data
+            })
 
-            type: SUCCESS_REGISTER,
-            payload: res.data
-        })
         } catch (err) {
             dispatch ({
-
                 type: FAIL_REGISTER,
-                payload: err.response.data
-
+                /* payload:res.data */
             })
         }
     }
-    //login user 
 
-    const loginUser = async userData => {
-        const config = {
-            header: {
-                'Content-Type': 'application/json'
+        //login user
+
+        const loginUser = async userData => {
+            const config = {
+                header : {
+                    'Application-Type':'application/json'
+                }
+            }
+            try {
+                const res = await axios.post('http://localhost:8000/auth', userData, config)
+                dispatch({
+                    type: SUCCESS_LOGIN,
+                    payload: res.data
+                })
+    
+            } catch (err) {
+                dispatch ({
+                    type: FAIL_LOGIN,
+                    payload:err.response.data
+                })
             }
         }
-        try {
-            const res = await axios.post('/auth', userData, config)
-        dispatch ({
-            type: SUCCESS_LOGIN,
-            payload: res.data
 
-        })
-        } catch (err) {
-            dispatch ({
+        //logout user 
 
-                type: FAIL_LOGIN,
-                payload: err.response.data
-
-            })
-
+        const logout = () => {
+            dispatch(
+                {
+                    type: LOG_OUT,
+        
+                }
+            )
         }
-    }
+
+
+
     return (
-  <AuthContext.Provider value={{userAuth: state.userAuth,
-                                errors:state.errors,
-                                registerUser,
-                                loginUser
-                                }}>
-                                {props.children}
-  </AuthContext.Provider>
+        <AuthContext.Provider value={{
+            user: state.user,
+            userAuth: state.userAuth,
+            errors:state.errors,
+            getUser: getUser,
+            registerUser,
+            loginUser,
+            logout
+        }}>
+            {props.children}
+        </AuthContext.Provider>
     )
 }
+
 export default AuthState

@@ -20,18 +20,14 @@ router.post('/',
   ],
   async (req, res) => {
     const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ error: errors.array() })
-    }
+  
 
     const { name, email, password } = req.body
 
     try {
       // user already exits ?
       let user = await User.findOne({ email })
-      if (user) {
-        return res.status(400).json({ error: [{ msg: 'user already exits' }] })
-      }
+    
       user = new User({
         name,
         email,

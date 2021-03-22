@@ -8,6 +8,15 @@ import GuestState from './context/guestContext/GuestState.js'
 import AuthState from './context/authContext/authState.js'
 import Register from './components/pages/Register.js'
 import Login from './components/pages/Login.js'
+import setToken from '../src/utils/setToken.js'
+
+
+
+if (localStorage.token) {
+  setToken(localStorage.token)
+} else {
+  
+}
 
 
 function App() {
