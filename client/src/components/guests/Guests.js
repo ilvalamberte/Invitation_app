@@ -1,16 +1,16 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import GuestContext from '../../context/guestContext/GuestContext.js'
 
 import Guest from '../guests/Guest.js'
 
 
 const Guests = () => {
-    const {guests, filterGuest , search, getGuests } = useContext(GuestContext)
+    const {guests, filterGuest, getGuests } = useContext(GuestContext)
 
-    useEffect( () => {
+    useEffect(() => {
         getGuests()
-    }, [])
-    
+    })    
+
     return (
         <div className="guests">
             {guests.map(guest => <Guest key={guest.id} guest={guest} />) ?

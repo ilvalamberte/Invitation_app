@@ -15,7 +15,6 @@ import {
 } from '../types.js'
 
 const AuthState = (props) => {
-
     const initialState = {
         userAuth:null,
         errors:null,
@@ -31,7 +30,7 @@ const AuthState = (props) => {
             setToken(localStorage.token)
         }
         try {
-            const res = await axios.get('http://localhost:8000/auth')
+            const res = await axios.get('http://localhost:5000/auth')
             dispatch (
                 {
                     type: SET_USER,
@@ -59,7 +58,7 @@ const AuthState = (props) => {
             }
         }
         try {
-            const res = await axios.post('http://localhost:8000/register', userData, config, {mode:cors})
+            const res = await axios.post('http://localhost:5000/register', userData, config)
             dispatch({
                 type: SUCCESS_REGISTER,
                 payload: res.data
@@ -82,7 +81,7 @@ const AuthState = (props) => {
                 }
             }
             try {
-                const res = await axios.post('http://localhost:8000/auth', userData, config)
+                const res = await axios.post('http://localhost:5000/auth', userData, config)
                 dispatch({
                     type: SUCCESS_LOGIN,
                     payload: res.data

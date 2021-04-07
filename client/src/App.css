@@ -140,8 +140,26 @@ form {
     opacity: 0.7;
   }
 
- 
+  .btnGr {
+    display: inline-block;
+    background: green;
+    color:var(--light-color);
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.4s ease-in;
+    outline: none;
+      margin-top:1rem;
+        }
+      .btn:hover{
+      opacity: 0.4;
+    }
+  
 
+  
+
+  
    /* ************* toggel *************************** */
 
    
@@ -594,3 +612,9 @@ table{
   padding: 10px; 
   text-align: center; 
 } 
+
+.container-buttons {
+  display: flex;
+  flex-direction: column;
+
+}

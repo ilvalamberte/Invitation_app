@@ -52,27 +52,24 @@ const GuestState = (props) => {
 
     const getGuests = async () => {
         try {
-            const res = await axios.get('/guests')
+            const res = await axios.get('http://localhost:5000/guests')
             dispatch ({
                 type: GET_GUESTS,
                 payload: res.data
             })
-
         } catch (err) {
          console.log(err)
         }
-
     }
 
 //add guest
     const addGuest = async (guest) => {
-
-        const config = {
+             const config = {
             'Content-Type' : 'application/json'
         }
 
         try {
-            const res = await axios.post('/guests', guest, config)
+            const res = await axios.post('http://localhost:5000/guests', guest, config)
             guest.isconfirmed = false
             dispatch ({
                 type: ADD_GUEST,
@@ -93,7 +90,7 @@ const GuestState = (props) => {
 //remove guest
     const removeGuest = async (id) => {
         try {
-        await axios.delete(`/guests/${id}`)
+        await axios.delete(`http://localhost:5000/guests/${id}`)
         } catch (err) {
 
          }
@@ -103,7 +100,7 @@ const GuestState = (props) => {
         })
     }
 //update guest
-    const updateGuest = async (guest) => {
+    const updateGuest = async (id, guest) => {
         const config = {
             headers : {
                 'Content-Type': 'application/json'
@@ -111,7 +108,7 @@ const GuestState = (props) => {
         }
 
     try {
-        const res = await axios.put(`/guests/${id}`, guest, config)
+        const res = await axios.put(`http://localhost:5000/guests/${id}`, guest, config)
         dispatch ({
             type: UPDATE_GUEST,
             payload: res.data
