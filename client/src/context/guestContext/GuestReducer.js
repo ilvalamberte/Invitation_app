@@ -27,13 +27,13 @@ export default (state, {type, payload}) => {
         case REMOVE_GUEST:
             return {
                 ...state,
-                guests: state.guests.filter(guest => guest._id !== payload)
+                guests: state.guests.filter(guest => guest.id !== payload)
 
             }
         case UPDATE_GUEST:
             return {
                 ...state,
-                guests:state.guests.map(guest => guest.id === payload._id ? payload : guest)
+                guests:state.guests.map(guest => guest._id === payload._id ? payload : guest)
             }
 
         case EDIT_GUEST: 
@@ -48,19 +48,7 @@ export default (state, {type, payload}) => {
             editAble: null
         }
        
-        case SEARCH_GUEST :
-            const reg = new RegExp(`${payload}`, 'gi')
-            return {
-                ...state,
-                search:state.guests.filter(guest=>guest.name.match())
-            }
-
-        case CLEAR_SEARCH:
-                return {
-                    ...state,
-                    search:null
-
-                }
+  
         case TOGGLE_FILTER:
             return{
                 ...state,

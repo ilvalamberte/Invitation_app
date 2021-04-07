@@ -15,6 +15,6 @@ app.use('/guests', require('./routes/guests'))
 app.use(cors());
 
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`))
