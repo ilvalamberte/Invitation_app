@@ -33,7 +33,7 @@ export default (state, {type, payload}) => {
         case UPDATE_GUEST:
             return {
                 ...state,
-                guests:state.guests.map(guest => guest._id === payload._id ? payload : guest)
+                guests:state.guests.map(guest => guest.id === payload.id ? payload : guest)
             }
 
         case EDIT_GUEST: 

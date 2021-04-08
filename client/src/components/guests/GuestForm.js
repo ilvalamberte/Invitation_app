@@ -48,7 +48,7 @@ const onsubmit = e => {
     setGuest({
       name: '',
       phone: '',
-      dietary: ''
+      dietary: 'Vegan'
     })
   }
 }

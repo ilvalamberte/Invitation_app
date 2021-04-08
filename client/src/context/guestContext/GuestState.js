@@ -153,7 +153,7 @@ const GuestState = (props) => {
 
         })
     }
-    console.log(state.filterGuest)
+  
     return (
     <GuestContext.Provider
     value={{

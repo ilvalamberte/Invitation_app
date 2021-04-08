@@ -6,7 +6,7 @@ const GuestFilter = () => {
     const {toggleFilter} = useContext(GuestContext)
 
     return (
-        <div className="guest-card container-buttons">
+        <div className="container-buttons">
        
         <div className="toggle btn">
             <label className="switch">
