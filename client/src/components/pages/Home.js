@@ -16,7 +16,7 @@ const Home = () => {
             <div className="main">
                 <div className="filter">
       
-                <GuestCard mainIcon="" name="Advanced Options" filter1="Show Attending" filter2="Show Totals" filter3="Book a room" filter1icon={<FcConferenceCall />}/>
+                <GuestCard mainIcon="" name="Advanced Options" filter1="Show Totals" filter2="Show Vegans" filter3="Book a room" filter1icon={<FcConferenceCall />}/>
                
                 </div>
                 <GuestForm />

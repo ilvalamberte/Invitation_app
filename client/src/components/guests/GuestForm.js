@@ -13,7 +13,7 @@ useEffect( () => {
     setGuest({
       name: '',
       phone: '',
-      dietary: 'Non-Veg'
+      dietary: 'Vegan'
     })
 
   }
@@ -22,7 +22,7 @@ useEffect( () => {
 const [guest, setGuest] = useState({
   name: '',
   phone: '',
-  dietary: 'Non-Veg'
+  dietary: 'Vegan'
 });
 
 
@@ -48,7 +48,7 @@ const onsubmit = e => {
     setGuest({
       name: '',
       phone: '',
-      dietary: 'Vegan'
+      dietary: ''
     })
   }
 }

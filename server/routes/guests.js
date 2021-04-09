@@ -10,7 +10,7 @@ const Guest = require('../models/Guest.js');
 
 router.get('/', auth, async (req,res) => {  
 try {
-    const guests = await Guest.find({user: req.user.id})
+    const guests = await Guest.find()
     res.json(guests)
     } catch (err) {
     console.error(err.message)

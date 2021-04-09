@@ -654,7 +654,7 @@ table{
 
 .card .additional {
   
-  width: 6.1em;
+  width: 1.1em;
   height: 100%;
   background: var(--success-color);
   transition: width 0.4s;
@@ -695,6 +695,8 @@ color: white;
 .card .additional .stats {
   font-size: 1rem;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   position: absolute;
   bottom: 1rem;
   left: 4.5rem;
@@ -708,7 +710,7 @@ color: white;
 }
 
 .card .additional .stats > div {
-  flex: 1;
+ 
   text-align: center;
 }
 
