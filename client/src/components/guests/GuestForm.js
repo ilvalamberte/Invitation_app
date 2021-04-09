@@ -5,7 +5,7 @@ import GuestContext from '../../context/guestContext/GuestContext.js'
 const GuestForm = () => {
 const { addGuest, editAble, updateGuest, clearEdit } = useContext(GuestContext);
 
-useEffect( () => {
+useEffect(() => {
 
   if (editAble !== null) {
     setGuest(editAble)
@@ -48,7 +48,7 @@ const onsubmit = e => {
     setGuest({
       name: '',
       phone: '',
-      dietary: ''
+      dietary: 'Vegan'
     })
   }
 }
@@ -65,17 +65,14 @@ const onsubmit = e => {
           Dietary</p>
         <div className="options">
           <label class="container">Non-Veg
-          <input type="radio" name="dietary" value="Non-Veg"/>
+          <input type="radio" name="dietary" value="Non-Veg" checked={dietary==="Non-Veg"}/>
             <span class="checkmark"></span>
           </label>
           <label class="container">Vegan
-          <input type="radio" name="dietary" value="Vegan" />
+          <input type="radio" name="dietary" value="Vegan" checked={dietary==="Vegan"}/>
             <span class="checkmark"></span>
           </label>
-          <label class="container">Pescatarian
-          <input type="radio" name="dietary" value="Pascatarian" /* checked = {dietary === 'Pascatarian'} *//>
-            <span class="checkmark"></span>
-          </label>
+     
         </div>
         <input type="submit" value="Submit" className={editAble !== null ? "btnGr" : "btn"} />
       </form>

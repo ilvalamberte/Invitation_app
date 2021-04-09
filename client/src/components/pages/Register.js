@@ -48,7 +48,7 @@ const Register = (props) => {
 
             <div className="question">
 
-            
+          
            
                 <p>Already have an account? {" "} <Link to='/login'> Login </Link></p>
             </div>

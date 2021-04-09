@@ -37,6 +37,10 @@ const Guest = ({guest}) => {
             <BsTrash />
             </button>
 
+            <button className="btn1" onClick={handleIsConfirmed}>
+            <BsCheckBox />
+            </button>
+
             </div>
             </div>
 

@@ -100,7 +100,7 @@ const GuestState = (props) => {
         })
     }
 //update guest
-    const updateGuest = async (_id, guest) => {
+    const updateGuest = async (guest) => {
         const config = {
             headers : {
                 'Content-Type': 'application/json'
@@ -108,7 +108,7 @@ const GuestState = (props) => {
         }
 
     try {
-        const res = await axios.put(`http://localhost:5000/guests/${_id}`, guest, config)
+        const res = await axios.put(`http://localhost:5000/guests/${guest._id}`, guest, config)
         dispatch ({
             type: UPDATE_GUEST,
             payload: res.data
@@ -133,7 +133,7 @@ const GuestState = (props) => {
         })
 
     }
-    const clearEdit = (guest) => {
+    const clearEdit = () => {
         dispatch ({
             type: CLEAR_EDIT,
             payload: ''

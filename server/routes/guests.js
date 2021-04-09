@@ -61,7 +61,7 @@ try {
 }
 })
 
-router.put('/:id', auth, async (req,res) => {
+/* router.put('/:id', auth, async (req,res) => {
     const {name, phone, dietary, isconfirmed} = req.body
     const updatedGuest = {name, phone, dietary, isconfirmed}
     try {
@@ -76,6 +76,29 @@ router.put('/:id', auth, async (req,res) => {
         console.error(err.message)
         res.status(500).send('Server crashed')
     }
+}) */
+
+router.put('/:id', auth, async (req,res) => {
+
+    const {name, phone, dietary, isconfirmed} = req.body
+    const updatedGuest = {name, phone, dietary, isconfirmed}
+
+    try {
+        let guest = await Guest.findById(req.params.id)
+        if(!guest) {
+            return res.status(404).json({msg : 'Guest not found'})
+        } else {
+            guest = await Guest.findByIdAndUpdate(req.params.id, {$set: updatedGuest}, {new:true})
+            res.send(guest)
+        }
+
+
+    } catch (err) {
+        console.error(err.message)
+        res.status(500).send('Server Error')
+
+    }
+
 })
 
 module.exports = router
