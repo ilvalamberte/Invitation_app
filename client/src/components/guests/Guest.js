@@ -25,10 +25,7 @@ const Guest = ({guest}) => {
         <div className="guest-card">
             <div className="card-head">
                 <div>
-                    <label className={`${isconfirmed && 'confirm'}`}>{isconfirmed}
-                        <BsCheckBox />
-                        <input type="checkbox" onChange={handleIsConfirmed}></input>
-                    </label>
+             
                 </div>
 
                   <div>
@@ -42,9 +39,6 @@ const Guest = ({guest}) => {
 
             </div>
             </div>
-
-          
-          
 
             <div className="card-body">
 

@@ -4,8 +4,8 @@ import GuestReducer from './GuestReducer.js'
 import axios from 'axios'
 import {
     TOGGLE_FILTER,
-    SEARCH_GUEST,
-    CLEAR_SEARCH,
+ 
+  
     ADD_GUEST,
     REMOVE_GUEST,
     UPDATE_GUEST,
@@ -17,7 +17,7 @@ import {
 const GuestState = (props) => {
     const initialState = {
         filterGuest : false,
-        search: null,
+   
         editAble:null,
         guests: [
       /*       {
@@ -100,7 +100,7 @@ const GuestState = (props) => {
         })
     }
 //update guest
-    const updateGuest = async (id, guest) => {
+    const updateGuest = async (_id, guest) => {
         const config = {
             headers : {
                 'Content-Type': 'application/json'
@@ -108,7 +108,7 @@ const GuestState = (props) => {
         }
 
     try {
-        const res = await axios.put(`http://localhost:5000/guests/${id}`, guest, config)
+        const res = await axios.put(`http://localhost:5000/guests/${_id}`, guest, config)
         dispatch ({
             type: UPDATE_GUEST,
             payload: res.data
@@ -147,13 +147,8 @@ const GuestState = (props) => {
         })
     }
 
-    const clearSearch =() => {
-        dispatch({
-            type:CLEAR_SEARCH
 
-        })
-    }
-    console.log(state.filterGuest)
+  
     return (
     <GuestContext.Provider
     value={{
@@ -167,8 +162,7 @@ const GuestState = (props) => {
     updateGuest,
     editGuest,
     clearEdit,
-    toggleFilter,
-    clearSearch
+    toggleFilter
 }}>{props.children}</GuestContext.Provider>  
 )}
 

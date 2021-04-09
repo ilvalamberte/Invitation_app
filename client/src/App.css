@@ -513,7 +513,7 @@ table  {
   justify-content: space-between;
   padding: 0 3rem;
   align-items: baseline;
-  margin-top:1rem;
+  margin-top:8rem;
   width: 100%;
   flex-wrap: wrap;
   order:3
@@ -617,4 +617,175 @@ table{
   display: flex;
   flex-direction: column;
 
+}
+
+
+/* for cards */
+
+.card {
+ 
+  width: 600px;
+  height: 200px;
+  background-color: var(--primary-color);
+  background: var(--primary-color);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+
+  overflow: hidden;
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.card h1 {
+  text-align: center;
+  font-size: 1.3em;
+  margin-left: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1em;
+  margin-top: 0.15em;
+  color: grey;
+  transition: background 0.2s, color 0.2s;
+
+}
+
+.recent {
+  margin-top: 2em;
+}
+
+.card .additional {
+  
+  width: 1.1em;
+  height: 100%;
+  background: var(--success-color);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+  color: black;
+}
+
+
+.card:hover .additional {
+  width: 100%;
+ 
+}
+
+
+.card .additional .user-card::after 
+.card .additional .user-card .title::after {
+
+  color: white;
+}
+.card .additional .user-card {
+  font-size: 3.1em;
+  margin: 0.3em;
+}
+.card .additional .more-info {
+  width: 600px;
+  float: left;
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  top: 0.5em;
+}
+.card .additional .more-info h1 {
+color: white;
+}
+
+
+.card .additional .stats {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 1rem;
+  left: 4.5rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.card.green .additional .stats {
+  color: #325C46;
+}
+
+.card .additional .stats > div {
+ 
+  text-align: center;
+}
+
+.card .additional .stats i {
+  display: block;
+}
+
+.card .additional .stats div.title {
+  font-size: 0.70rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.7em;
+  color: grey;
+}
+
+.card .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.card .general {
+  width: 600px;
+  height: 100%;
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+
+
+/* modal views */
+
+.checkbox-block {
+  display:flex;
+  margin:0;
+  flex-wrap:wrap;
+  align-items:stretch;
+
+}
+
+.checkbox-block > div {
+  min-width:80px;
+  flex:1 1 20%;
+  margin:20px;
+
+}
+.checkbox-effect:not(:checked), .checkbox-effect:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+.checkbox-effect {
+  margin: 0.5em;
+}
+label {
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+}
+
+label:hover {
+  opacity: 1;
+}
+
+
+.iconSize {
+  height: 5em;
+  width: 5em;
 }

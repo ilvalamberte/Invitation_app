@@ -10,6 +10,7 @@ import AuthState from './context/authContext/authState.js'
 import Register from './components/pages/Register.js'
 import Login from './components/pages/Login.js'
 import setToken from '../src/utils/setToken.js'
+import VeganGuest from '../src/components/guests/VeganGuest.js'
 
 
 
@@ -28,10 +29,13 @@ function App() {
     <div>
       <Navbar />
       <Switch>
-        <Route exact path= '/' component={Home}/>
+      <Route exact path= '/' component={Home}/>
         <Route exact path= '/register' component={Register}/>
         <Route exact path= '/login' component={Login}/>
         <Route exact path= '/GuestCounter' component={GuestCounter}/>
+        <Route exact path= '/VeganGuest' component={VeganGuest}/>
+
+
       </Switch>
     </div> 
     </Router>

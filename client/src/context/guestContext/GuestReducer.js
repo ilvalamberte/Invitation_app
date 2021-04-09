@@ -1,7 +1,5 @@
 import {
     TOGGLE_FILTER,
-    SEARCH_GUEST,
-    CLEAR_SEARCH,
     ADD_GUEST,
     REMOVE_GUEST,
     UPDATE_GUEST,
@@ -33,7 +31,7 @@ export default (state, {type, payload}) => {
         case UPDATE_GUEST:
             return {
                 ...state,
-                guests:state.guests.map(guest => guest._id === payload._id ? payload : guest)
+                guests:state.guests.filter(guest => guest._id === payload._id ? payload : guest)
             }
 
         case EDIT_GUEST: 
@@ -52,7 +50,7 @@ export default (state, {type, payload}) => {
         case TOGGLE_FILTER:
             return{
                 ...state,
-                filterGuest: !state.filterGuest
+                guests: state.guests.filter(guest => guest.dietary === "Vegan")
             }
         default:
             return state
