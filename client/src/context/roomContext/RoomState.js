@@ -1,6 +1,9 @@
 import React, {useReducer} from 'react'
 import RoomContext from './RoomContext.js'
 import RoomReducer from './RoomReducer'
+import {
+    ADD_ROOM
+} from '../types'
 
 const RoomState = (props) => {
         const initialState = {
@@ -29,11 +32,11 @@ const RoomState = (props) => {
 
         const [state, dispatch] = useReducer(RoomReducer, initialState)
 
-        const addRoom = (rooms) =>{
-            rooms.id = Date.now()
+        const addRoom = (room) =>{
+            room.id = Date.now()
             dispatch({
-                // type: ADD_ROOM,
-                payload: rooms
+                type: ADD_ROOM,
+                payload: room
             })
         }
         return (
