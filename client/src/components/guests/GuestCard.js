@@ -40,8 +40,10 @@ const GuestCard = (props) => {
                   </Link>
                 </div>
                 <div>
+                <Link to='/House'>
                   <div class="title">{props.filter3}</div>
                   <div><FcCollaboration className="iconSize"/></div>
+                  </Link>
                 </div>
               </div>
             </div>

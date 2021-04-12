@@ -11,7 +11,8 @@ import Register from './components/pages/Register.js'
 import Login from './components/pages/Login.js'
 import setToken from '../src/utils/setToken.js'
 import VeganGuest from '../src/components/guests/VeganGuest.js'
-
+import { House } from './components/pages/House';
+import RoomState from './context/roomContext/RoomState.js'
 
 
 if (localStorage.token) {
@@ -25,6 +26,7 @@ function App() {
   return (
     <AuthState>
     <GuestState>
+    <RoomState>
     <Router>
     <div>
       <Navbar />
@@ -34,9 +36,11 @@ function App() {
         <Route exact path= '/login' component={Login}/>
         <Route exact path= '/GuestCounter' component={GuestCounter}/>
         <Route exact path= '/VeganGuest' component={VeganGuest}/>
+        <Route exact path= "/House" component={House} />
       </Switch>
     </div> 
     </Router>
+    </RoomState>
     </GuestState>
     </AuthState>
   );

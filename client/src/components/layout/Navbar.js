@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="navbar">
         <div className="logo">
             <h1><i className='as fa-glass-cheers' />
-            Invitation App
+            <Link to="/">Invitation App</Link>
             </h1>
         </div>
         <ul>
