@@ -8,6 +8,7 @@ export const EDIT_GUEST = 'EDIT_GUEST'
 export const CLEAR_EDIT = 'CLEAR_EDIT'
 
 export const ADD_ROOM = "ADD_ROOM"
+export const REMOVE_ROOM = 'REMOVE_ROOM'
 
 export const SUCCESS_REGISTER = 'SUCCESS_REGISTER'
 export const SUCCESS_LOGIN = 'SUCCESS_LOGIN'

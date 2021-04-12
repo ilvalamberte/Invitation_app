@@ -2,7 +2,8 @@ import React, {useReducer} from 'react'
 import RoomContext from './RoomContext.js'
 import RoomReducer from './RoomReducer'
 import {
-    ADD_ROOM
+    ADD_ROOM,
+    REMOVE_ROOM
 } from '../types'
 
 const RoomState = (props) => {
@@ -39,11 +40,25 @@ const RoomState = (props) => {
                 payload: room
             })
         }
+
+        const removeRoom = async (id) => {
+            // try {
+            // await axios.delete(`http://localhost:5000/guests/${id}`)
+            // } catch (err) {
+    
+            //  }
+            dispatch({
+                type: REMOVE_ROOM,
+                payload: id
+            })
+        }
+
         return (
             <RoomContext.Provider
                 value={{
                     rooms: state.rooms,
-                    addRoom
+                    addRoom,
+                    removeRoom
                 }}
             >{props.children}</RoomContext.Provider>  
         )
