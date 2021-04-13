@@ -5,7 +5,7 @@ export const RoomForm = () => {
     const { addRoom } = useContext(RoomContext)
     const [room, setRoom] = useState({
         name:'',
-        type:''
+        type:'Public'
     })
 
     const {name, type} = room
@@ -22,7 +22,7 @@ export const RoomForm = () => {
         console.log(room)
         setRoom({
             name:'',
-            type:''
+            type:'Public'
         })
     }
     return (

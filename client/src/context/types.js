@@ -19,3 +19,4 @@ export const SET_USER = 'SET_USER'
 export const AUTH_ERROR = 'AUTH_ERROR'
 
 export const GET_GUESTS = 'GET_GUESTS'
+export const GET_ROOMS = 'GET_ROOMS'
