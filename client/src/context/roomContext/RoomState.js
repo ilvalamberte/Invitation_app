@@ -15,17 +15,17 @@ const RoomState = (props) => {
                 {
                     id: 1,
                     name: "Jake Smith",
-                    phone: "333 444 357",
+                    type: "Public",
                 },
                 {
                     id: 2,
                     name: "Merry Williams",
-                    phone: "222 777 2354",
+                    type: "Public",
                 },
                 {
                     id: 3,
                     name: "Azhaan Idrees",
-                    phone: "988 346 5432",
+                    type: "Private",
                 },
             ],
             errors:null

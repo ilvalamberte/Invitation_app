@@ -5,7 +5,7 @@ import { BsTrash } from 'react-icons/bs'
 
 export const Room = ({room}) => {
     const { removeRoom } = useContext(RoomContext)
-    const {id, name, phone} = room
+    const {id, name, type} = room
 
     const handleRemove = () => {
         removeRoom(id)
@@ -22,7 +22,7 @@ export const Room = ({room}) => {
                 </div>
                 <div className="card-body">
                     <div className="contact">
-                        <p>{phone}</p>
+                        <p>{type}</p>
                         <p>{id}</p>
                     </div>
                 </div>

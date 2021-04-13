@@ -5,10 +5,10 @@ export const RoomForm = () => {
     const { addRoom } = useContext(RoomContext)
     const [room, setRoom] = useState({
         name:'',
-        phone:''
+        type:''
     })
 
-    const {name, phone} = room
+    const {name, type} = room
 
     const handleChange = e => {
         setRoom({
@@ -22,7 +22,7 @@ export const RoomForm = () => {
         console.log(room)
         setRoom({
             name:'',
-            phone:''
+            type:''
         })
     }
     return (
@@ -31,8 +31,20 @@ export const RoomForm = () => {
             <form onSubmit={onsubmit} class="main">
                 <h1>Add a Room</h1>
                 <input type="text" placeholder="Room Name" name="name" value={name} onChange={handleChange}/>
-                <input type="text" placeholder="Date" name="phone" value={phone}  onChange={handleChange}/>
-                {/* <input type="text" placeholder="Phone" name="phone" value={phone} onChange={handleChange}/> */}
+                <p className="options-label">
+                Room Type</p>
+                <div className="options">
+                <label class="container">Public
+                <input type="radio" name="type" value="Public" checked={type==="Public"} onChange={handleChange}/>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Private
+                <input type="radio" name="type" value="Private" checked={type==="Private"} onChange={handleChange}/>
+                    <span class="checkmark"></span>
+                </label>
+            
+                </div>
+                {/* <input type="text" placeholder="type" name="type" value={type} onChange={handleChange}/> */}
                 <input type="submit" value="Submit" class="btn" />
             </form>
         </div>
