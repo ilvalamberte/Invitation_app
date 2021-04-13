@@ -5,7 +5,7 @@ import { BsTrash } from 'react-icons/bs'
 
 export const Room = ({room}) => {
     const { removeRoom } = useContext(RoomContext)
-    const {id, name, type} = room
+    const {id, name, type, user} = room
 
     const handleRemove = () => {
         removeRoom(id)
@@ -15,15 +15,15 @@ export const Room = ({room}) => {
         <div class="main">
             <div className="guest-card">
                 <div className="card-head">
-                    <h2>{name}</h2>
-                    <button className="btn1" onClick={handleRemove}>
-                    <BsTrash />
-                </button>
+                    <h2>{type}</h2>
+                    {/* <button className="btn1" onClick={handleRemove}>
+                        <BsTrash />
+                    </button> */}
                 </div>
                 <div className="card-body">
                     <div className="contact">
-                        <p>{type}</p>
-                        <p>{id}</p>
+                        <p>{name}</p>
+                        {/* <p>{user}</p> */}
                     </div>
                 </div>
             </div>

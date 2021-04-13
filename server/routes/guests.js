@@ -11,7 +11,12 @@ const Guest = require('../models/Guest.js');
 router.get('/', auth, async (req,res) => {  
 try {
     // const guests = await Guest.find()
+    // //select according to the user
     const guests = await Guest.find({user: req.user.id})
+    // //select all from collection
+    // const guests = await Guest.find({});
+    // //select all from collection
+    // const guests = await Guest.find({}).sort({_id:1});
     res.json(guests)
     } catch (err) {
     console.error(err.message)

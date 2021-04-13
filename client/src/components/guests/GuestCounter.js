@@ -31,10 +31,6 @@ const GuestCounter = () => {
             <th>Vegan</th>
             <td>{invitedByDiet('Vegan')}</td>
          
-          </tr><tr>
-            <th>Pescetarians</th>
-            <td>{invitedByDiet('Pascatarian')}</td>
-          
           </tr>
           <tr>
             <th>Total</th>

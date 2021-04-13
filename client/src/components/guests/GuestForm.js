@@ -64,13 +64,13 @@ const onsubmit = e => {
         <p className="options-label">
           Dietary</p>
         <div className="options">
-          <label class="container">Non-Veg
+          <label className="container">Non-Veg
           <input type="radio" name="dietary" value="Non-Veg" checked={dietary==="Non-Veg"} onChange={handleChange}/>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
-          <label class="container">Vegan
+          <label className="container">Vegan
           <input type="radio" name="dietary" value="Vegan" checked={dietary==="Vegan"} onChange={handleChange}/>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
      
         </div>

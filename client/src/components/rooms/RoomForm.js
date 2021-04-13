@@ -26,13 +26,13 @@ export const RoomForm = () => {
         })
     }
     return (
-        <div class="main">
+        <div class="invitation-app">
         {/* <h1>{editAble !== null ? 'Edit Guest' : 'Add Guest'}</h1> */}
-            <form onSubmit={onsubmit} class="main">
-                <h1>Add a Room</h1>
-                <input type="text" placeholder="Room Name" name="name" value={name} onChange={handleChange}/>
+            <form onSubmit={onsubmit}>
+                <h1>Add a Message</h1>
+                <input type="text" placeholder="Type your message" name="name" value={name} onChange={handleChange}/>
                 <p className="options-label">
-                Room Type</p>
+                Message Type</p>
                 <div className="options">
                 <label class="container">Public
                 <input type="radio" name="type" value="Public" checked={type==="Public"} onChange={handleChange}/>

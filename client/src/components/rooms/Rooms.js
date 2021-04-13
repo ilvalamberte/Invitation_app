@@ -13,7 +13,7 @@ export const Rooms = () => {
         <div className="guests">
                 {rooms.map(room => <Room key={room.id} room={room} />)}
                 {/* <Room /> */}
-            <h2>Total No. of Rooms: {roomLentgth}</h2>
+            <h2>Total No. of Message: {roomLentgth}</h2>
         </div>
     )
 }

@@ -10,7 +10,7 @@ export const House = () => {
         <div className="app-container">
             <div class="main">
                 <div className="filter">
-                    <GuestCard mainIcon="" name="Advanced Options" filter1="Show Totals" filter2="Show Vegans" filter3="Rooms" filter1icon={<FcConferenceCall />}/>
+                    <GuestCard mainIcon="" name="Advanced Options" filter1="Show Totals" filter2="Show Vegans" filter3="Messages" filter1icon={<FcConferenceCall />}/>
                 </div>
                     <RoomForm />
                 <div>

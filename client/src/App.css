@@ -789,3 +789,7 @@ label:hover {
   height: 5em;
   width: 5em;
 }
+
+.invitation-app {
+  width: 20%;
+}
