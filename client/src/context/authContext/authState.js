@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react'
 import axios from 'axios'
-import cors from 'cors'
-import AuthContext from '../authContext/authContext.js'
-import AuthReducer from './authReducer.js'
-import setToken from '../../utils/setToken.js'
+// import cors from 'cors'
+import AuthContext from '../authContext/authContext'
+import AuthReducer from './authReducer'
+import setToken from '../../utils/setToken'
 import {
     SUCCESS_REGISTER,
     SUCCESS_LOGIN,
@@ -16,9 +16,9 @@ import {
 
 const AuthState = (props) => {
     const initialState = {
+        user: null,
         userAuth:null,
-        errors:null,
-        user: null
+        errors:null
     }
 
     const [state, dispatch] = useReducer(AuthReducer, initialState)
@@ -67,7 +67,7 @@ const AuthState = (props) => {
         } catch (err) {
             dispatch ({
                 type: FAIL_REGISTER,
-                /* payload:res.data */
+                payload: err.response.data
             })
         }
     }
@@ -90,7 +90,7 @@ const AuthState = (props) => {
             } catch (err) {
                 dispatch ({
                     type: FAIL_LOGIN,
-                    payload:err.response.data
+                    payload: err.response.data
                 })
             }
         }
@@ -112,7 +112,7 @@ const AuthState = (props) => {
         <AuthContext.Provider value={{
             user: state.user,
             userAuth: state.userAuth,
-            errors:state.errors,
+            errors: state.errors,
             getUser: getUser,
             registerUser,
             loginUser,

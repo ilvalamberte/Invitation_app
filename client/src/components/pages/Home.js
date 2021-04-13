@@ -10,7 +10,10 @@ import Guests from '../guests/Guests.js'
 import {FcConferenceCall} from 'react-icons/fc'
 
 const Home = () => {
-
+    // const { getUser } = useContext(AuthContext)
+    // useEffect(() => {
+    //     getUser()
+    // }, [])
     return (
         <div className="app-container">
             <div className="main">

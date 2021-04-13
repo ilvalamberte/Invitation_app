@@ -1,5 +1,5 @@
 import React , { useContext, Fragment } from 'react'
-import AuthContext from '../../context/authContext/authContext.js'
+import AuthContext from '../../context/authContext/authContext'
 import { Link } from 'react-router-dom'
 
 import { GrLogout } from 'react-icons/gr'
@@ -13,23 +13,23 @@ const Navbar = () => {
 
     const userLinks = (
     <Fragment>
-    <li>Hello {user && user.name}</li>
-    <span className="sm-hide">|</span>
-    <li>
-    <Link to='/login'> <a onClick={onLogout} href="#!">
-    <span className="sm-hide">Logout</span></a></Link> 
-    <GrLogout color="white"/>
-    </li>
+        <li>{user}Hello {user && user.name}</li>
+            <span className="sm-hide">|</span>
+        <li>
+        <Link to='/login'> <a onClick={onLogout} href="#!">
+            <span className="sm-hide">Logout</span></a></Link> 
+        <GrLogout color="white"/>
+        </li>
     </Fragment>
     )
     const authLinks = (
     <Fragment>
-    <li>
-    <Link to='register'>Register</Link>
-    </li>
-    <li>
-    <Link to='/login'> Log In</Link>
-    </li>
+        <li>
+            <Link to='register'>Register</Link>
+        </li>
+        <li>
+            <Link to='/login'> Log In</Link>
+        </li>
     </Fragment>
     )
 

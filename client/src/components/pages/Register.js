@@ -30,8 +30,8 @@ const Register = (props) => {
         console.log("not matching")
         } else {
         registerUser({name, email, password});
-        console.log({name, email});
-        console.log("works???")
+        // console.log({name, email});
+        // console.log("works???")
         }
     }
     return (
@@ -47,9 +47,10 @@ const Register = (props) => {
             </form>
 
             <div className="question">
-
-          
-           
+                {/* {errors !== null && <button className="danger">
+                    {errors.msg ? errors.msg : errors.error[0].msg}
+                    <span>x</span>
+                    </button>} */}
                 <p>Already have an account? {" "} <Link to='/login'> Login </Link></p>
             </div>
         </div>

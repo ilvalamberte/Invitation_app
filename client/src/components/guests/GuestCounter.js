@@ -14,7 +14,7 @@ const GuestCounter = () => {
 
 
     return (
-        <div>
+        <div className="main">
       <table>
         <tbody>
           <tr>

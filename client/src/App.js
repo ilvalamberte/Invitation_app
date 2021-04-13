@@ -9,11 +9,11 @@ import GuestState from './context/guestContext/GuestState.js'
 import AuthState from './context/authContext/authState.js'
 import Register from './components/pages/Register.js'
 import Login from './components/pages/Login.js'
-import setToken from '../src/utils/setToken.js'
+import setToken from '../src/utils/setToken'
 import VeganGuest from '../src/components/guests/VeganGuest.js'
 import { House } from './components/pages/House';
 import RoomState from './context/roomContext/RoomState.js'
-
+import PrivateRoute from '../src/components/pages/routes/PrivateRoute'
 
 if (localStorage.token) {
   setToken(localStorage.token)
@@ -31,12 +31,12 @@ function App() {
     <div>
       <Navbar />
       <Switch>
-      <Route exact path= '/' component={Home}/>
+      <PrivateRoute exact path= '/' component={Home}/>
         <Route exact path= '/register' component={Register}/>
         <Route exact path= '/login' component={Login}/>
-        <Route exact path= '/GuestCounter' component={GuestCounter}/>
-        <Route exact path= '/VeganGuest' component={VeganGuest}/>
-        <Route exact path= "/House" component={House} />
+        <PrivateRoute exact path= '/GuestCounter' component={GuestCounter}/>
+        <PrivateRoute exact path= '/VeganGuest' component={VeganGuest}/>
+        <PrivateRoute exact path= "/House" component={House} />
       </Switch>
     </div> 
     </Router>

@@ -27,17 +27,17 @@ const AuthReducer = (state, action) => {
                 userAuth: true,
                 errors:null
             }
-            case FAIL_LOGIN:
-            case FAIL_REGISTER:
-            case LOG_OUT:
-            case AUTH_ERROR:
-                localStorage.removeItem('token')
-                return {
-                    ...state,
-                    userAuth:null,
-                    errors:action.payload
-                }
-        default:
+        case FAIL_LOGIN:
+        case FAIL_REGISTER:
+        case LOG_OUT:
+        case AUTH_ERROR:
+            localStorage.removeItem('token')
+            return {
+                ...state,
+                userAuth:null,
+                errors:action.payload
+            }
+           default:
             return state
 
     }
